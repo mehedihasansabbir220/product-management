@@ -6,7 +6,7 @@
     <div class="row">
         @foreach($products as $product)
         <div class="col-md-4">
-            <div class="card">
+            <div class="card" style="height: 500px">
                 <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $product->name }}</h5>

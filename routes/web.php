@@ -20,3 +20,4 @@ Route::resource('products', ProductController::class);
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::delete('cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');

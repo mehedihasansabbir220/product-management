@@ -57,18 +57,17 @@ class ProductController extends Controller
             'image' => 'nullable|image',
         ]);
 
-        if ($request->file('image')) {
+        if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
-            $product->update(['image' => $path]);
+            $product->image = $path;
         }
 
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'buy_price' => $request->buy_price,
-            'sell_price' => $request->sell_price,
-            'discount_code' => $request->discount_code,
-        ]);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->buy_price = $request->buy_price;
+        $product->sell_price = $request->sell_price;
+        $product->discount_code = $request->discount_code;
+        $product->save();
 
         return redirect()->route('products.index');
     }
